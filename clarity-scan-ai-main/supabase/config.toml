@@ -1,0 +1,7 @@
+project_id = "jhihmyhmdkccbgudpnol"
+
+[functions.analyze-brain-mri]
+verify_jwt = false
+
+[functions.segment-brain-tumor]
+verify_jwt = false

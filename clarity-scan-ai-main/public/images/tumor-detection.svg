@@ -1,0 +1,16 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#fdf2f8" stroke="#ec4899" stroke-width="2"/>
+  
+  <!-- Brain outline -->
+  <path d="M 100 50 Q 130 50 140 70 Q 145 85 140 100 Q 135 110 140 120 Q 145 130 130 140 L 100 145 L 70 140 Q 55 130 60 120 Q 65 110 60 100 Q 55 85 60 70 Q 70 50 100 50" 
+        fill="none" stroke="#ec4899" stroke-width="2.5" stroke-linejoin="round"/>
+  
+  <!-- Tumor highlight -->
+  <circle cx="110" cy="95" r="18" fill="#ec4899" opacity="0.4"/>
+  <circle cx="110" cy="95" r="15" fill="none" stroke="#ec4899" stroke-width="2" stroke-dasharray="4,4"/>
+  
+  <!-- Detection waves -->
+  <circle cx="100" cy="100" r="35" fill="none" stroke="#ec4899" stroke-width="1" opacity="0.3"/>
+  <circle cx="100" cy="100" r="50" fill="none" stroke="#ec4899" stroke-width="1" opacity="0.2"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+  
+  <!-- Upload folder -->
+  <rect x="40" y="80" width="120" height="70" rx="8" fill="none" stroke="#0ea5e9" stroke-width="2"/>
+  
+  <!-- Folder top -->
+  <path d="M 40 80 L 55 60 L 75 60 L 90 80" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linejoin="round"/>
+  
+  <!-- Upload arrow -->
+  <line x1="100" y1="130" x2="100" y2="90" stroke="#0ea5e9" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="100,85 90,100 110,100" fill="#0ea5e9"/>
+  
+  <!-- Document lines inside folder -->
+  <line x1="55" y1="110" x2="145" y2="110" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+  <line x1="55" y1="125" x2="130" y2="125" stroke="#0ea5e9" stroke-width="1.5" opacity="0.6"/>
+</svg>

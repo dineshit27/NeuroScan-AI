@@ -1,0 +1,26 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  
+  <!-- Document -->
+  <rect x="45" y="50" width="110" height="120" rx="8" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+  
+  <!-- Header bar -->
+  <rect x="45" y="50" width="110" height="25" rx="8" fill="#f59e0b" opacity="0.2"/>
+  
+  <!-- Title -->
+  <line x1="55" y1="65" x2="135" y2="65" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Content lines -->
+  <line x1="55" y1="85" x2="130" y2="85" stroke="#f59e0b" stroke-width="1.5" opacity="0.7"/>
+  <line x1="55" y1="95" x2="125" y2="95" stroke="#f59e0b" stroke-width="1.5" opacity="0.7"/>
+  <line x1="55" y1="105" x2="130" y2="105" stroke="#f59e0b" stroke-width="1.5" opacity="0.7"/>
+  
+  <!-- Checkmark -->
+  <circle cx="155" cy="140" r="12" fill="#f59e0b"/>
+  <polyline points="150,140 152,142 158,137" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Download arrow -->
+  <line x1="100" y1="155" x2="100" y2="170" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="100,170 92,162 108,162" fill="#f59e0b"/>
+</svg>
