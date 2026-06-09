@@ -2,12 +2,13 @@
 
 # 🧠 NeuroScan: AI-Powered Brain Tumor Detection Platform
 
-<div align="center">
-
-![GitHub license](https://img.shields.io/github/license/dineshit27/NeuroScan-AI?style=flat-square&color=blue)
-![Contributions](https://img.shields.io/badge/Contributions-Welcome-orange?style=flat-square)
-![AI](https://img.shields.io/badge/Powered%20By-AI-purple?style=flat-square)
-![Status](https://img.shields.io/badge/Status-Prototype-success?style=flat-square)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-00C853?style=flat&logo=vercel&logoColor=white)](https://your-demo-link.com)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=flat&logo=github&logoColor=white)](https://github.com/username/repository)
+[![Version](https://img.shields.io/badge/Version-v1.0.0-7C3AED?style=flat&logo=semanticrelease&logoColor=white)](#)
+[![Status](https://img.shields.io/badge/Status-Live-10B981?style=flat&logo=statuspage&logoColor=white)](#)
+[![License](https://img.shields.io/badge/License-MIT-2563EB?style=flat&logo=opensourceinitiative&logoColor=white)](#)
+[![React](https://img.shields.io/badge/Developed%20With-React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://react.dev)
+[![Supabase](https://img.shields.io/badge/Backend%20By-Supabase-181818?style=flat&logo=supabase&logoColor=3ECF8E)](https://supabase.com)
 
 </div>
 
