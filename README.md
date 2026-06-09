@@ -7,6 +7,7 @@
 [![License](https://img.shields.io/badge/License-MIT-2563EB?style=flat&logo=opensourceinitiative&logoColor=white)](#)
 [![React](https://img.shields.io/badge/Developed%20With-React-cyan?style=flat&logo=react&logoColor=61DAFB)](https://react.dev)
 [![Supabase](https://img.shields.io/badge/Backend%20By-Supabase-green?style=flat&logo=supabase&logoColor=3ECF8E)](https://supabase.com)
+[![Powered By](https://img.shields.io/badge/Powered%20By-Gemini-API-4285F4?style=flat&logo=googlegemini&logoColor=white)](https://gemini.google.com)
 
 </div>
 
