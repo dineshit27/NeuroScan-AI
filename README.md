@@ -1,6 +1,5 @@
 <img src="Screenshots/neu.png" alt="Project Banner" width="100%">
-
-# 🧠NeuroScan: AI-Powered Brain Tumor Detector Platform
+<h1>🧠NeuroScan: AI-Powered Brain Tumor Detector Platform</h1>
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-orange?style=flat&logo=vercel&logoColor=white)](https://neuroscan-aio.web.app/)
 [![Version](https://img.shields.io/badge/Version-v1.0.0-7C3AED?style=flat&logo=semanticrelease&logoColor=white)](#)
