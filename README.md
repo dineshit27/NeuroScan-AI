@@ -1,6 +1,6 @@
 <img src="Screenshots/neu.png" alt="Project Banner" width="100%">
 
-# 🧠 NeuroScan AI – AI-Powered Brain Tumor Detection Platform
+# 🧠 NeuroScan: AI-Powered Brain Tumor Detection Platform
 
 <div align="center">
 
