@@ -1,3 +1,5 @@
+<img src="Screenshots/neu.png" alt="Project Banner" width="100%">
+
 # 🧠 NeuroScan AI – AI-Powered Brain Tumor Detection Platform
 
 <div align="center">
@@ -14,8 +16,6 @@
 ## 🚀 Introduction  
 
 **NeuroScan AI** is an **AI-powered medical web platform** that assists in the **early detection and analysis of brain tumors** using MRI scan images. The platform combines **modern frontend engineering**, **serverless backend infrastructure**, and **advanced multimodal AI models** to deliver fast, accurate, and explainable results.
-
-<img src="Screenshots/neu.png" alt="Project Banner" width="100%">
 
 The system can determine:
 - Whether a **brain tumor is present or absent**
