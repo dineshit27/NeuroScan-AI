@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![GitHub license](https://img.shields.io/github/license/yourusername/neuroscan-ai?style=flat-square&color=blue)
+![GitHub license](https://img.shields.io/github/license/dineshit27/neuroscan-ai?style=flat-square&color=blue)
 ![Contributions](https://img.shields.io/badge/Contributions-Welcome-orange?style=flat-square)
 ![AI](https://img.shields.io/badge/Powered%20By-AI-purple?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Prototype-success?style=flat-square)
