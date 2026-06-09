@@ -3,7 +3,6 @@
 # 🧠 NeuroScan: AI-Powered Brain Tumor Detection Platform
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-00C853?style=flat&logo=vercel&logoColor=white)](https://your-demo-link.com)
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=flat&logo=github&logoColor=white)](https://github.com/username/repository)
 [![Version](https://img.shields.io/badge/Version-v1.0.0-7C3AED?style=flat&logo=semanticrelease&logoColor=white)](#)
 [![Status](https://img.shields.io/badge/Status-Live-10B981?style=flat&logo=statuspage&logoColor=white)](#)
 [![License](https://img.shields.io/badge/License-MIT-2563EB?style=flat&logo=opensourceinitiative&logoColor=white)](#)
