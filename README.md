@@ -5,7 +5,7 @@
 [![Version](https://img.shields.io/badge/Version-v1.0.0-7C3AED?style=flat&logo=semanticrelease&logoColor=white)](#)
 [![Status](https://img.shields.io/badge/Status-Live-10B981?style=flat&logo=statuspage&logoColor=white)](#)
 [![License](https://img.shields.io/badge/License-MIT-2563EB?style=flat&logo=opensourceinitiative&logoColor=white)](#)
-[![React](https://img.shields.io/badge/Developed%20With-React-cyan?style=flat&logo=react&logoColor=61DAFB)](https://react.dev)
+[![React](https://img.shields.io/badge/Built%20With-React-cyan?style=flat&logo=react&logoColor=61DAFB)](https://react.dev)
 [![Supabase](https://img.shields.io/badge/Backend%20By-Supabase-green?style=flat&logo=supabase&logoColor=3ECF8E)](https://supabase.com)
 [![Powered By](https://img.shields.io/badge/Powered%20By-Gemini-4285F4?style=flat&logo=googlegemini&logoColor=white)](https://gemini.google.com)
 
