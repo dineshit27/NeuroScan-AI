@@ -38,9 +38,9 @@ serve(async (req: Request) => {
       throw new Error('No image data provided');
     }
 
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) {
-      throw new Error("LOVABLE_API_KEY is not configured");
+    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
+    if (!GEMINI_API_KEY) {
+      throw new Error("GEMINI_API_KEY is not configured");
     }
 
     console.log("Analyzing brain MRI image with Gemini Vision...");
@@ -60,34 +60,34 @@ Analyze the image and respond with a JSON object containing:
 
 Respond ONLY with valid JSON, no additional text.`;
 
-    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    // Clean base64 string (remove data URL prefix if present)
+    const cleanBase64 = imageBase64.replace(/^data:image\/\w+;base64,/, '');
+
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${GEMINI_API_KEY}`, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "google/gemini-2.5-pro",
-        messages: [
-          { role: "system", content: systemPrompt },
+        contents: [
           {
-            role: "user",
-            content: [
+            parts: [
               {
-                type: "text",
-                text: "Please analyze this brain MRI scan image and provide your detailed assessment."
+                text: systemPrompt + "\n\nPlease analyze this brain MRI scan image and provide your detailed assessment."
               },
               {
-                type: "image_url",
-                image_url: {
-                  url: imageBase64.startsWith('data:') ? imageBase64 : `data:image/jpeg;base64,${imageBase64}`
+                inline_data: {
+                  mime_type: "image/jpeg",
+                  data: cleanBase64
                 }
               }
             ]
           }
         ],
-        temperature: 0.3,
-        max_tokens: 2000,
+        generationConfig: {
+          temperature: 0.3,
+          maxOutputTokens: 2000,
+        }
       }),
     });
 
@@ -119,9 +119,10 @@ Respond ONLY with valid JSON, no additional text.`;
     }
 
     const aiResponse = await response.json();
-    const content = aiResponse.choices?.[0]?.message?.content;
+    const content = aiResponse.candidates?.[0]?.content?.parts?.[0]?.text;
     
     if (!content) {
+      console.error("Unexpected API response:", JSON.stringify(aiResponse));
       throw new Error("No response from AI model");
     }
 

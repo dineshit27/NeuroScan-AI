@@ -96,6 +96,40 @@ export const classifyImageWithAPI = async (
   imageBase64: string
 ): Promise<ClassificationResult> => {
   console.log("Calling brain tumor analysis API...");
+
+  const formatInvokeError = async (invokeError: any) => {
+    try {
+      const ctx = invokeError?.context;
+      const status = ctx?.status ?? ctx?.response?.status;
+
+      // supabase-js may provide either `context.body` or `context.response`
+      let rawBody: string | null = null;
+      if (typeof ctx?.body === 'string') {
+        rawBody = ctx.body;
+      } else if (ctx?.response?.clone) {
+        rawBody = await ctx.response.clone().text();
+      }
+
+      if (rawBody) {
+        try {
+          const parsed = JSON.parse(rawBody);
+          const message = parsed?.error || parsed?.message;
+          const code = parsed?.code;
+          if (code === 'RATE_LIMITED') return 'Rate limit exceeded. Please wait a moment and try again.';
+          if (code === 'PAYMENT_REQUIRED') return 'AI credits depleted. Please add credits to continue.';
+          if (message) return status ? `${message} (HTTP ${status})` : message;
+        } catch {
+          // ignore JSON parse errors
+          return status ? `${rawBody} (HTTP ${status})` : rawBody;
+        }
+      }
+
+      if (invokeError?.message && status) return `${invokeError.message} (HTTP ${status})`;
+      return invokeError?.message || 'Analysis failed';
+    } catch {
+      return invokeError?.message || 'Analysis failed';
+    }
+  };
   
   const { data, error } = await supabase.functions.invoke('analyze-brain-mri', {
     body: { imageBase64 }
@@ -103,7 +137,7 @@ export const classifyImageWithAPI = async (
 
   if (error) {
     console.error("API Error:", error);
-    throw new Error(error.message || 'Analysis failed');
+    throw new Error(await formatInvokeError(error));
   }
 
   if (data.error) {

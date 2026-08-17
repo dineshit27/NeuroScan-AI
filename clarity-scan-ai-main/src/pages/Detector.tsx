@@ -6,6 +6,7 @@ import { AnalysisResults } from '@/components/AnalysisResults';
 import { ScanHistory } from '@/components/ScanHistory';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { SegmentationOverlay } from '@/components/SegmentationOverlay';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -22,12 +23,14 @@ export default function Detector() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [result, setResult] = useState<ClassificationResult | null>(null);
   const [imageBase64, setImageBase64] = useState<string | null>(null);
+  const [overlayPngDataUrl, setOverlayPngDataUrl] = useState<string | null>(null);
 
   const handleFileSelect = useCallback((file: File) => {
     setSelectedFile(file);
     setPreviewUrl(URL.createObjectURL(file));
     setResult(null);
     setImageBase64(null);
+    setOverlayPngDataUrl(null);
   }, []);
 
   const saveScanToHistory = async (classificationResult: ClassificationResult, imageUrl: string) => {
@@ -56,6 +59,7 @@ export default function Detector() {
 
     setIsProcessing(true);
     setResult(null);
+    setOverlayPngDataUrl(null);
 
     try {
       const base64 = await convertFileToBase64(selectedFile);
@@ -88,6 +92,7 @@ export default function Detector() {
     setPreviewUrl(null);
     setResult(null);
     setImageBase64(null);
+    setOverlayPngDataUrl(null);
   };
 
   const handleSelectHistoryScan = (scan: { image_url: string | null; result: ClassificationResult }) => {
@@ -96,6 +101,7 @@ export default function Detector() {
       setImageBase64(null);
     }
     setResult(scan.result);
+    setOverlayPngDataUrl(null);
   };
 
   return (
@@ -180,6 +186,59 @@ export default function Detector() {
             {/* Results Section */}
             {result && previewUrl && (
               <div className="space-y-6 animate-fade-in">
+                {/* Overlay Export */}
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between gap-3 mb-4">
+                      <div>
+                        <h3 className="text-lg font-semibold">Segmentation Overlay</h3>
+                        <p className="text-sm text-muted-foreground">
+                          {imageBase64
+                            ? 'Overlay is generated automatically when a tumor is detected.'
+                            : 'Overlay export requires a freshly uploaded scan (history items may not include image data).'}
+                        </p>
+                      </div>
+
+                      {overlayPngDataUrl && (
+                        <Button
+                          variant="outline"
+                          onClick={() => {
+                            const a = document.createElement('a');
+                            a.href = overlayPngDataUrl;
+                            a.download = 'mri-overlay.png';
+                            a.click();
+                          }}
+                        >
+                          Download Overlay PNG
+                        </Button>
+                      )}
+                    </div>
+
+                    <div className="flex flex-col md:flex-row gap-6 items-start">
+                      <SegmentationOverlay
+                        originalImageUrl={previewUrl}
+                        imageBase64={imageBase64}
+                        tumorDetected={result.tumorDetected}
+                        tumorType={result.tumorType}
+                        onOverlayImageGenerated={setOverlayPngDataUrl}
+                      />
+
+                      {overlayPngDataUrl && (
+                        <div className="w-full md:w-64">
+                          <div className="text-xs text-muted-foreground mb-2">Export Preview</div>
+                          <div className="relative w-full aspect-square rounded-lg overflow-hidden border border-border bg-muted/30">
+                            <img
+                              src={overlayPngDataUrl}
+                              alt="Overlay export preview"
+                              className="absolute inset-0 w-full h-full object-contain"
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+
                 {/* Analysis Summary Only */}
                 <Card>
                   <CardContent className="p-6">
